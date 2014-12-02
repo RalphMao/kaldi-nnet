@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/p/kaldi/code/!svn/ver/4536/trunk/src/nnet
+END
+nnet-various.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/p/kaldi/code/!svn/ver/4473/trunk/src/nnet/nnet-various.h
+END
+nnet-max-pooling-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-max-pooling-component.h
+END
+nnet-convolutional-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/kaldi/code/!svn/ver/4470/trunk/src/nnet/nnet-convolutional-component.h
+END
+nnet-parallel-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/kaldi/code/!svn/ver/4445/trunk/src/nnet/nnet-parallel-component.h
+END
+nnet-max-pooling-2d-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/kaldi/code/!svn/ver/4390/trunk/src/nnet/nnet-max-pooling-2d-component.h
+END
+nnet-frame-pooling-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/kaldi/code/!svn/ver/4472/trunk/src/nnet/nnet-frame-pooling-component.h
+END
+nnet-convolutional-2d-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/kaldi/code/!svn/ver/4433/trunk/src/nnet/nnet-convolutional-2d-component.h
+END
+nnet-component.cc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/p/kaldi/code/!svn/ver/4472/trunk/src/nnet/nnet-component.cc
+END
+nnet-pdf-prior.cc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-pdf-prior.cc
+END
+nnet-affine-transform.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/p/kaldi/code/!svn/ver/4472/trunk/src/nnet/nnet-affine-transform.h
+END
+nnet-activation.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/p/kaldi/code/!svn/ver/4536/trunk/src/nnet/nnet-activation.h
+END
+nnet-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/p/kaldi/code/!svn/ver/4472/trunk/src/nnet/nnet-component.h
+END
+nnet-nnet.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/p/kaldi/code/!svn/ver/4470/trunk/src/nnet/nnet-nnet.cc
+END
+nnet-pdf-prior.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-pdf-prior.h
+END
+nnet-nnet.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/p/kaldi/code/!svn/ver/4304/trunk/src/nnet/nnet-nnet.h
+END
+nnet-sentence-averaging-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/p/kaldi/code/!svn/ver/4472/trunk/src/nnet/nnet-sentence-averaging-component.h
+END
+nnet-randomizer.cc
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-randomizer.cc
+END
+nnet-trnopts.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/p/kaldi/code/!svn/ver/3102/trunk/src/nnet/nnet-trnopts.h
+END
+nnet-randomizer.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-randomizer.h
+END
+nnet-component-test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/p/kaldi/code/!svn/ver/4471/trunk/src/nnet/nnet-component-test.cc
+END
+nnet-loss.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/p/kaldi/code/!svn/ver/4528/trunk/src/nnet/nnet-loss.cc
+END
+nnet-average-pooling-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-average-pooling-component.h
+END
+nnet-loss.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-loss.h
+END
+nnet-rbm.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-rbm.h
+END
+nnet-average-pooling-2d-component.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/p/kaldi/code/!svn/ver/4390/trunk/src/nnet/nnet-average-pooling-2d-component.h
+END
+nnet-linear-transform.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-linear-transform.h
+END
+nnet-kl-hmm.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/p/kaldi/code/!svn/ver/4272/trunk/src/nnet/nnet-kl-hmm.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/p/kaldi/code/!svn/ver/3551/trunk/src/nnet/Makefile
+END
+nnet-randomizer-test.cc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/p/kaldi/code/!svn/ver/4390/trunk/src/nnet/nnet-randomizer-test.cc
+END

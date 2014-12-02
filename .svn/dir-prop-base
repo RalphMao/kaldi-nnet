@@ -1,0 +1,18 @@
+K 10
+svn:ignore
+V 112
+*.slo
+*.lo
+*.o
+*.so
+*.dylib
+*.lai
+*.la
+*.a
+*.dSYM
+.depend.mk
+nnet-test
+nnet-component-test
+nnet-randomizer-test
+
+END
