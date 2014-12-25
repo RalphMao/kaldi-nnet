@@ -62,6 +62,14 @@ class MaxPoolingComponent : public Component {
     KALDI_ASSERT(pool_size_ != 0 && pool_step_ != 0 && pool_stride_ != 0);
   }
 
+  
+  void FeatParams(int32 *feat_params)
+  {
+      feat_params[0] = pool_size_;
+      feat_params[1] = pool_step_;
+      feat_params[2] = pool_stride_;
+  }
+
   void ReadData(std::istream &is, bool binary) {
     // pooling hyperparameters
     ExpectToken(is, binary, "<PoolSize>");

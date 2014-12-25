@@ -106,6 +106,9 @@ class Component {
   virtual bool IsUpdatable() const { 
     return false; 
   }
+  virtual void FeatParams(int32 *feat_params) {
+      return;
+  }
 
   /// Get size of input vectors
   int32 InputDim() const { 

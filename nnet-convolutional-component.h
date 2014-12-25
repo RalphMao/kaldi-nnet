@@ -135,6 +135,15 @@ class ConvolutionalComponent : public UpdatableComponent {
     //
   }
 
+  void FeatParams(int32 *feat_params)
+  {
+      feat_params[0] = patch_stride_;
+      feat_params[1] = patch_dim_;
+      feat_params[2] = patch_step_;
+      feat_params[3] = filter_section_;
+      feat_params[4] = filter_step_;
+  }
+
   void ReadData(std::istream &is, bool binary) {
     // convolution hyperparameters
     ExpectToken(is, binary, "<PatchDim>");
@@ -194,19 +203,6 @@ class ConvolutionalComponent : public UpdatableComponent {
     KALDI_ASSERT(num_filters == bias_.Dim());
     KALDI_ASSERT(filter_dim == filters_.NumCols());
 
-//    // number of patches:
-//    KALDI_ASSERT((patch_stride_ - patch_dim_) % patch_step_ == 0);
-//    int32 num_patches = 1 + (patch_stride_ - patch_dim_) / patch_step_;
-//    // filter dim:
-//    int32 filter_dim = num_splice * patch_dim_;
-//    // num filters:
-//    KALDI_ASSERT(output_dim_ % num_patches == 0);
-//    int32 num_filters = output_dim_ / num_patches;
-//    // check parameter dims:
-//    KALDI_ASSERT(num_filters == filters_.NumRows());
-//    KALDI_ASSERT(num_filters == bias_.Dim());
-//    KALDI_ASSERT(filter_dim == filters_.NumCols());
-//    //
   }
 
   void WriteData(std::ostream &os, bool binary) const {
@@ -218,6 +214,10 @@ class ConvolutionalComponent : public UpdatableComponent {
     WriteToken(os, binary, "<PatchStride>");
     WriteBasicType(os, binary, patch_stride_);
 
+    WriteToken(os,binary, "<FilterSection>");
+    WriteBasicType(os,binary, filter_section_);
+    WriteToken(os,binary, "<FilterStep>");
+    WriteBasicType(os,binary, filter_step_);
     // re-scale learn rate
     WriteToken(os, binary, "<LearnRateCoef>");
     WriteBasicType(os, binary, learn_rate_coef_);
@@ -262,7 +262,6 @@ class ConvolutionalComponent : public UpdatableComponent {
     // useful dims
     int32 num_splice = input_dim_ / patch_stride_;
     int32 num_filters = filters_.NumRows();
-    int32 num_frames = in.NumRows();
     int32 filter_dim = filters_.NumCols();
 
     int32 num_sections = 1 + (patch_stride_ - filter_section_)/ filter_step_;
@@ -335,10 +334,9 @@ class ConvolutionalComponent : public UpdatableComponent {
     for (int32 s=0; s<num_sections; s++) {
     for (int32 p=0; p<num_patches; p++) {
       CuSubMatrix<BaseFloat> out_diff_patch(out_diff.ColRange((s * num_patches+p) * num_filters_sec, num_filters_sec));
-      feature_patch_diff.AddMatMat(1.0, out_diff_patch, kNoTrans, filters_.RowRange(s*num_filters_sec,filter_dim), kNoTrans, 0.0);
-      CuSubMatrix<BaseFloat> tgt(in_diff->ColRange((s*num_filters_sec+p*patch_step_)*num_splice,filter_dim));
+      feature_patch_diff.AddMatMat(1.0, out_diff_patch, kNoTrans, filters_.RowRange(s*num_filters_sec,num_filters_sec), kNoTrans, 0.0);
+      CuSubMatrix<BaseFloat> tgt(in_diff->ColRange((s*filter_step_+p*patch_step_)*num_splice,filter_dim));
       tgt.AddMat(1.0, feature_patch_diff);
-    }
     }
 /*
     // backpropagate to vector of matrices (corresponding to position of a filter)
@@ -358,13 +356,13 @@ class ConvolutionalComponent : public UpdatableComponent {
     }
 */
   }
+  }
 
 
   void Update(const CuMatrixBase<BaseFloat> &input, const CuMatrixBase<BaseFloat> &diff) {
     // useful dims
     int32 num_splice = input_dim_ / patch_stride_;
     int32 num_filters = filters_.NumRows();
-    int32 num_frames = in.NumRows();
     int32 filter_dim = filters_.NumCols();
 
     int32 num_sections = 1 + (patch_stride_ - filter_section_)/ filter_step_;
@@ -399,7 +397,7 @@ class ConvolutionalComponent : public UpdatableComponent {
 */    //
     // update
     // 
-    filters_.ColRange(s*num_filters_sec,num_filters_sec).AddMat(-lr*learn_rate_coef_, filters_grad_);
+    filters_.RowRange(s*num_filters_sec,num_filters_sec).AddMat(-lr*learn_rate_coef_, filters_grad_);
     bias_.Range(s*num_filters_sec,num_filters_sec).AddVec(-lr*bias_learn_rate_coef_, bias_grad_);
     //
     }
